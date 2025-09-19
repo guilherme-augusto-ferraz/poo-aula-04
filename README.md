@@ -1,13 +1,13 @@
 Aula 04 - POO - 19/09/2025
 
 
-## Atividade
+# Atividade
 
 Você deve desenvolver uma aplicação em Python (modo terminal) para coletar métricas básicas do sistema onde o programa está sendo executado.
 
 O objetivo é aplicar herança, polimorfismo e orientação a objetos em um contexto próximo ao mundo real (DevOps).
 
-Requisitos:
+### Requisitos:
 
 1. Criar uma classe Metrica que define a estrutura de uma métrica do sistema.
 
@@ -29,12 +29,13 @@ Requisitos:
         2025-09-19 15:30:01,Disco,50234,MB
 
 5. Desafios Extras
+    
     a) permitir que o programa colete métricas periodicamente (loop), por exemplo, coletar métricas a cada 5 segundos durante 10 iterações
 
     b) aceitar parâmetros via terminal para escolher executar métricas individualmente, mudar o intervalo de tempo entre coletas ou o nome do arquivo de saída
 
 
-Dicas:
+## Dicas:
 
 ### biblioteca útil para coletar métricas do sistema
     
@@ -49,7 +50,7 @@ Dicas:
         psutil.disk_usage.free
     
     # informações de CPU
-    psutil.cpu_percent(interval=1)
+        psutil.cpu_percent(interval=1)
     
 
 ```
@@ -57,6 +58,11 @@ Dicas:
 ### biblioteca para criar, ler e modificar arquivos .csv
 ```python
     import csv
+
+    # exemplo de uso para adicionar linhas novas em um arquivo
+    with open("metricas.csv", mode="a", newline="") as arquivo:
+        escritor = csv.writer(arquivo)
+        escritor.writerow(["datetime", "metrica", "valor", "unidade"])
 ```
 
 ### exemplo para pegar a data e hora atual do sistema
